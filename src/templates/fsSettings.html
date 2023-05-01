@@ -1,0 +1,67 @@
+{% import "_includes/forms" as forms %}
+
+{{ forms.autosuggestField({
+    label: "APP ID"|t('craft-qcloud-cos'),
+    id: 'appId',
+    name: 'appId',
+    suggestEnvVars: true,
+    value: fs.appId,
+    errors: fs.getErrors('appId'),
+    class: 'cos-appId',
+    required: true
+}) }}
+
+{{ forms.autosuggestField({
+    label: "Secret ID"|t('craft-qcloud-cos'),
+    id: 'secretId',
+    name: 'secretId',
+    suggestEnvVars: true,
+    value: fs.secretId,
+    errors: fs.getErrors('secretId'),
+    class: 'cos-secretId',
+    required: true
+}) }}
+
+{{ forms.autosuggestField({
+    label: "Secret Key"|t('craft-qcloud-cos'),
+    id: 'secretKey',
+    name: 'secretKey',
+    suggestEnvVars: true,
+    value: fs.secretKey,
+    errors: fs.getErrors('secretKey'),
+    class: 'cos-secretKey',
+    required: true
+}) }}
+
+{{ forms.autosuggestField({
+    label: "Region"|t('craft-qcloud-cos'),
+    id: 'region',
+    name: 'region',
+    suggestEnvVars: true,
+    value: fs.region,
+    errors: fs.getErrors('region'),
+    class: 'cos-region',
+    required: true
+}) }}
+
+{{ forms.autosuggestField({
+    label: "Bucket"|t('craft-qcloud-cos'),
+    id: 'bucket',
+    name: 'bucket',
+    suggestEnvVars: true,
+    value: fs.bucket,
+    errors: fs.getErrors('bucket'),
+    class: 'cos-bucket',
+    required: true
+}) }}
+
+{{ forms.autosuggestField({
+    label: "Prefix path"|t('craft-qcloud-cos'),
+    id: 'prefix',
+    name: 'prefix',
+    suggestEnvVars: true,
+    value: fs.prefix,
+    errors: fs.getErrors('prefix'),
+    class: 'cos-prefix',
+    instructions: 'The prefix path of the filesystem, such as /images'|t('craft-qcloud-cos')
+}) }}
