@@ -7,6 +7,7 @@ namespace Sulao\CraftQcloudCos;
 use Craft;
 use craft\behaviors\EnvAttributeParserBehavior;
 use craft\flysystem\base\FlysystemFs;
+use craft\helpers\App;
 use craft\helpers\Assets;
 use League\Flysystem\FilesystemAdapter;
 use Overtrue\Flysystem\Cos\CosAdapter;
@@ -54,12 +55,12 @@ class Fs extends FlysystemFs
     protected function createAdapter(): FilesystemAdapter
     {
         return new CosAdapter([
-            'app_id'     => $this->appId,
-            'secret_id'  => $this->secretId,
-            'secret_key' => $this->secretKey,
-            'region'     => $this->region,
-            'bucket'     => preg_replace('/-'.preg_quote($this->appId, '/').'$/', '',$this->bucket),
-            'prefix'     => $this->prefix,
+            'app_id'     => App::parseEnv($this->appId),
+            'secret_id'  => App::parseEnv($this->secretId),
+            'secret_key' => App::parseEnv($this->secretKey),
+            'region'     => App::parseEnv($this->region),
+            'bucket'     => preg_replace('/-'.preg_quote($this->appId, '/').'$/', '', App::parseEnv($this->bucket)),
+            'prefix'     => App::parseEnv($this->prefix),
         ]);
     }
 
